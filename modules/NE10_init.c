@@ -62,7 +62,10 @@ ne10_result_t ne10_init()
     bytes    = fread (cpuinfo, 1, sizeof (cpuinfo), infofile);
     fclose (infofile);
 
-    if (0 == bytes || CPUINFO_BUFFER_SIZE == bytes)
+printf("NE10_init: bytes = %d\n", bytes);
+
+    //if (0 == bytes || CPUINFO_BUFFER_SIZE == bytes)
+    if (0 == bytes)
     {
         fprintf (stderr, "ERROR: Couldn't read the file \"/proc/cpuinfo\". NE10_init() failed.\n");
         return NE10_ERR;
